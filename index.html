@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta name="color-scheme" content="light dark" />
+    <title></title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <h1>pomodoro</h1>
+    <nav class='container'>
+        <section class="navigation container">
+            <input class='hidden' checked="true" type="radio" id="page_0" name="state" value="page_0" />
+            <label class="nav_item" id="label_0" for="page_0">pomodoro</label>
+            <input class='hidden' type="radio" id="page_1" name="state" value="page_1" />
+            <label class="nav_item" id="label_1" for="page_1">short break</label>
+            <input class='hidden' type="radio" id="page_2" name="state" value="page_2" />
+            <label class="nav_item" id="label_2" for="page_2">long break</label>
+            <span id="selection"></span>
+        </section>
+    </nav>
+    <div class="container">
+        <section class="container" id="clock_base">
+            <section id="clock_face">
+                <svg xmlns="http://www.w3.org/2000/svg" id="timer">
+                    <defs>
+                        <linearGradient id="gradientColor">
+                            <stop offset="0%" stop-color="#DA22FF" />
+                            <stop offset="100%" stop-color="#9733EE" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="50%" cy="50%" r="43%" stroke-linecap="round" />
+                </svg>
+                <button id="display" onclick="playPause()">
+                    <h1 id="time">00:00</h1>
+                    <p id="current-state">start</p>
+                    <!-- pause -->
+                </button>
+            </section>
+        </section>
+    </div class="container">
+    <div>
+        <button class="toggle-switch" id="open-modal">
+            <img id='gear' src="gear.svg" alt="open" />
+        </button>
+        <dialog data-modal id="settings">
+            <section class="container" id="modal-header">
+                <h1>settings</h1>
+                <button class="toggle-switch" id="close-modal">
+                    <img id="cross" src="cross.svg" alt="close" />
+                </button>
+            </section>
+            <section class="contaiener">
+                <h3>time (minutes)</h3>
+                <div class="time-container">
+                    <section>
+                        <label class="time-label" for="pomodoro">pomodoro</label>
+                        <input class="time-input" type="number" value="25" id="pomodoro" name="pomodoro" />
+                    </section>
+                    <section>
+                        <label class="time-label" for="short-break">short-break</label>
+                        <input class="time-input" type="number" value="5" id="short-break" name="short-break" />
+                    </section>
+                    <section>
+                        <label class="time-label" for="long-break">long-break</label>
+                        <input class="time-input" type="number" value="15" id="long-break" name="long-break" />
+                    </section>
+                </div>
+                <div class="radio-container">
+                    <legend>font</legend>
+                    <section class="setting-option fonts">
+                        <input class="setting-option-radio" disabled="true" type="radio" checked="true" value=""
+                            id='f-1' name="--font" />
+                        <label class="setting-option-label" for="f-1">f-1</label>
+                        <input class="setting-option-radio" disabled="true" type="radio" value="2" id="f-2"
+                            name="--font" />
+                        <label class="setting-option-label" for="f-2">f-2</label>
+                        <input class="setting-option-radio" disabled="true" type="radio" value="3" id="f-3"
+                            name="--font" />
+                        <label class="setting-option-label" for="f-3">f-3</label>
+                    </section>
+                </div>
+                <div class="radio-container">
+                    <legend>color</legend>
+                    <section class="setting-option colors">
+                        <input class="setting-option-radio" checked="true" type="radio" value="#db6e58" id="c-1"
+                            name="--selection-bg" />
+                        <label class="setting-option-label color-label" for="c-1"></label>
+                        <input class="setting-option-radio" type="radio" value="rgb(11, 173, 173)" id="c-2"
+                            name="--selection-bg" />
+                        <label class="setting-option-label color-label" for="c-2"></label>
+                        <input class="setting-option-radio" type="radio" value="rgb(219, 62, 198)" id="c-3"
+                            name="--selection-bg" />
+                        <label class="setting-option-label color-label" for="c-3"></label>
+                    </section>
+                </div>
+            </section>
+        </dialog>
+    </div>
+    <script src="index.js"></script>
+    <script src="styles.js"></script>
+</body>
+
+</html>
